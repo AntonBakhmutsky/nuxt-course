@@ -1,5 +1,5 @@
 ---
-title: 'Title of the page'
+title: 'Tit'
 description: 'meta desc'
 head:
   meta:
@@ -11,7 +11,7 @@ head:
       content: 'NuxtLabs'
     - name: 'copyright'
       content: '© 2022 NuxtLabs'
-publishedAt: 2023-07-12 17:15:00
+publishedAt: 2022-01-12 17:15:00
 ---
 # First post on our website
 ## Introduction
