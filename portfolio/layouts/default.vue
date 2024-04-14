@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto max-w-2xl">
     <AppHeader/>
-    <main class="p-2">
+    <main class="p-2 pt-10">
       <slot/>
     </main>
     <AppFooter/>

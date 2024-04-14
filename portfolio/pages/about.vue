@@ -1,20 +1,8 @@
 <template>
-  <div>
-    This page about me.
-  </div>
+  <article class="prose dark:prose-invert prose-h1:text-2xl">
+    <ContentDoc path="/about"/>
+  </article>
 </template>
 
 <script setup lang="ts">
-useSeoMeta({
-  title: 'About Page',
-  description: 'This is the main page',
-  ogTitle: '[og:title]',
-  ogDescription: '[og:description]',
-  ogImage: '[og:image]',
-  ogUrl: '[og:url]',
-  twitterTitle: 'Main Page',
-  twitterDescription: '[twitter:description]',
-  twitterImage: '[twitter:image]',
-  twitterCard: 'summary'
-})
 </script>

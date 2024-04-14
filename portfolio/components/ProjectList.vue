@@ -5,7 +5,7 @@
   <section v-else>
     <ul class="grid grid-cols-1 gap-4">
       <li
-          class="border border-gray-200 rounded-sm p4 hover:bg-gray-100 font-mono p-4"
+          class="border border-gray-200 rounded-sm p4 hover:bg-gray-100 font-mono p-4 dark:hover:bg-gray-700"
           v-for="repository in repos"
           :key="repository.id"
       >
