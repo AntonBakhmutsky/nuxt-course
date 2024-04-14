@@ -6,6 +6,15 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/content'
   ],
+  content: {
+    highlight: {
+      theme: {
+        default: 'min-light',
+        dark: 'min-dark',
+        sepia: 'monokai'
+      }
+    }
+  },
   colorMode: {
     classSuffix: ''
   }
