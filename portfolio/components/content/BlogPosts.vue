@@ -32,7 +32,6 @@ const posts = computed(() => {
 
   const result = []
   let lastYear = null
-  console.log(data.value)
 
   for (let post of data.value) {
     const year = new Date(post.publishedAt).getFullYear()
