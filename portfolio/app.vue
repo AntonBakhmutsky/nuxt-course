@@ -15,5 +15,5 @@
 .page-enter-from,
 .page-leave-active
   opacity: 0
-  filter: blur(1rem)
+  filter: grayscale(1)
 </style>
