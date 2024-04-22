@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "@nuxthq/ui": "^2.7.0",
+    "@nuxtjs/color-mode": "^3.4.0",
+    "@nuxtjs/supabase": "^1.2.1",
     "i": "^0.3.7",
     "sass": "^1.75.0"
   }
