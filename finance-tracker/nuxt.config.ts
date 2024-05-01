@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
   ],
   supabase: {
-    redirect: false
+    redirect: true
   },
   colorMode: {
     preference: 'light',
