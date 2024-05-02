@@ -9,7 +9,6 @@
           :state="state"
           :schema="schema"
           @submit.prevent="save"
-          @error="test"
       >
         <UFormGroup :required="true" label="Transaction type" hint="Optional" class="mb-4" name="type">
           <USelect placeholder="Select the transaction type" :options="types" v-model="state.type"/>
@@ -18,7 +17,7 @@
           <UInput type="number" placeholder="Amount" v-model.number="state.amount"/>
         </UFormGroup>
         <UFormGroup label="Transaction date" :required="true" class="mb-4" name="created_at" >
-          <UInput type="date" icon="i-heroicons-calendar-days-20-solid" v-model="state.created_at" @error="test"/>
+          <UInput type="date" icon="i-heroicons-calendar-days-20-solid" v-model="state.created_at"/>
         </UFormGroup>
         <UFormGroup label="Description" hint="Optional" class="mb-4" name="description">
           <UInput placeholder="Description" v-model="state.description"/>
@@ -41,7 +40,7 @@ const props = defineProps({
 })
 
 const supabase = useSupabaseClient()
-const toast = useToast()
+const {toastSuccess, toastError} = useAppToast()
 
 const emit = defineEmits(['update:modelValue', 'saved'])
 
@@ -78,10 +77,7 @@ const isLoading = ref(false)
 const isJaPerdole = ref(false)
 const form = ref()
 
-function test() {
-  alert()
-}
-const save = async (e) => {
+const save = async () => {
   isJaPerdole.value = false
   await form.value.validate().catch(() => isJaPerdole.value = true)
 
@@ -94,20 +90,19 @@ const save = async (e) => {
         .upsert({...state.value})
 
     if (!error) {
-      toast.add({
+      toastSuccess({
         title: 'Transactions saved',
-        icon: 'i-heroicons-check-circle'
       })
       isOpen.value = false
       emit('saved')
+    } else {
+      throw error
     }
 
-    throw error
   } catch(e) {
-    toast.add({
+    toastError({
       title: 'Transaction not saved',
       description: e.message,
-      icon: 'i-heroicons-exclamation-circle'
     })
   } finally {
     isLoading.value = false

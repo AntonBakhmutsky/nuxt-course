@@ -28,7 +28,7 @@ import {useIsUserLoggedIn} from "~/composables/useIsUserLoggedIn.js";
 const success = ref(false)
 const email = ref('')
 const pending = ref(false)
-const toast = useToast()
+const {toastError} = useAppToast()
 const supabase = useSupabaseClient()
 
 useIsUserLoggedIn()
@@ -44,9 +44,8 @@ const handleLogin = async () => {
     })
 
     if (error) {
-      toast.add({
+      toastError({
         title: 'Error authenticated',
-        icon: 'i-heroicons-exclamation-circle',
         description: error.message
       })
     } else {
